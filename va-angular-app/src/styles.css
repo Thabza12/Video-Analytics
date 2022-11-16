@@ -1,0 +1,11 @@
+/* You can add global styles to this file, and also import other style files */
+@import 'https://bootswatch.com/5/journal/bootstrap.css';
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+/* @import "~mdb-angular-ui-kit/assets/scss/mdb.scss"; */
+
+html, body{ height: 100%; }
+
+
+
+

@@ -1,0 +1,32 @@
+<div class="container">
+
+    <h1 mat-dialog-title>Update Video</h1>
+    <br>
+    <div mat-dialog-content [formGroup]="updateVideoForm">
+        <mat-form-field appearance="fill">
+            <mat-label>Video File:</mat-label>
+            <input matInput ngx-mat-file-input class="form-control" formControlName="video_file">
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="fill">
+            <mat-label>Record Date:</mat-label>
+            <input matInput type="date" class="form-control" formControlName="record_date">
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="fill">
+            <mat-label>Start Time:</mat-label>
+            <input matInput type="time" class="form-control" formControlName="start_time">
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="fill">
+            <mat-label>End Time:</mat-label>
+            <input matInput type="time" class="form-control" formControlName="end_time">
+        </mat-form-field>
+    </div>
+    <br>
+    <div class="mat-dialog-actions">
+        <button class="mat-raised-button" class="btn btn-outline-danger me-2" mat-button (click)="cancel()">Cancel</button>
+        <button mat-button [mat-dialog-close]="true" class="btn btn-success" (click)="onSubmit()">Submit</button>
+    </div>
+
+</div>

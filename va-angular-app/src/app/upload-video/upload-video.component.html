@@ -1,0 +1,94 @@
+<div class="container">
+    <form [formGroup]="uploadVideosForm" (ng-Submit)="onSubmit(uploadVideosForm)">
+        <table>
+            <tr>
+                <br>
+                <br>
+                <br>
+                <h1>Video</h1>
+                <br>
+                <div class="row">
+                    <div class="col">
+                        <input type="file" class="form-control" formControlName="video_file" placeholder="Video File"
+                            name="Video File">
+                    </div>
+                    <div class="mb-3 mt-3">
+                        <label for="record_date" class="form-label">Record Date:</label>
+                        <input type="date" class="form-control" formControlName="record_date" id="record_date"
+                            name="record_date">
+                    </div>
+                    <div class="mb-3 mt-3">
+                        <label for="start_time" class="form-label">Start Time:</label>
+                        <input type="time" class="form-control" formControlName="start_time" id="start_time"
+                            name="start_time">
+                    </div>
+                    <div class="mb-3 mt-3">
+                        <label for="end_time" class="form-label">End Time:</label>
+                        <input type="time" class="form-control" formControlName="end_time" id="end_time" name="end_time">
+                    </div>
+                </div>
+                <br>
+            </tr>
+            <!-- <tr>
+                <div class="form-group" formArrayName="videoResultsRequest">
+                    <br>
+                    <h1>Upload Video Results</h1>
+                    <br>
+                    <div class="row"
+                        *ngFor="let control of $any(uploadVideosForm.get('videoResultsRequest')).controls; let i = index"
+                        [formGroupName]="i">
+                        <div class="col-4 mb-3 mt-3">
+                            <input type="text" formControlName="pickedProduct" placeholder="Picked Product"
+                                name="Picked Product">
+                        </div>
+                        <div class="col-3 mb-3 mt-3">
+                            <input type="text" formControlName="totalCases" placeholder="Total Cases"
+                                name="Total Cases">
+                        </div>
+                        <div>
+                            <button (click)="removeVideoResults(i)" type="button"
+                                class="btn btn-outline-primary me-2">Remove</button>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="mb-3 mt-3">
+                        <button (click)="addVideoResults()" type="button"
+                            class="btn btn-outline-danger me-2">Add</button>
+                    </div>
+                </div>
+            </tr>
+            <tr>
+                <div class="form-group" formArrayName="algoResultsRequest">
+                    <br>
+                    <h1>Upload Algorithm Results</h1>
+                    <br>
+                    <div class="row"
+                        *ngFor="let control of $any(uploadVideosForm.get('algoResultsRequest')).controls; let i = index"
+                        [formGroupName]="i">
+                        <div class="col-4 mb-3 mt-3">
+                            <input type="text" formControlName="productName" placeholder="Product Name"
+                                name="Product Name">
+                        </div>
+                        <div class="col-3 mb-3 mt-3">
+                            <input type="text" formControlName="productImage" placeholder="Product Image"
+                                name="Product Image">
+                        </div>
+                        <div>
+                            <button (click)="removeAlgoResults(i)" type="button"
+                                class="btn btn-outline-primary me-2">Remove</button>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="mb-3 mt-3">
+                        <button (click)="addAlgoResults()" type="button"
+                            class="btn btn-outline-danger me-2">Add</button>
+                    </div>
+                </div>
+            </tr> -->
+
+            <button (click)="onSubmit(uploadVideosForm)" class="btn btn-success">Submit</button>
+        </table>
+    </form>
+    <br>
+    <br>
+</div>

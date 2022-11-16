@@ -1,0 +1,27 @@
+<div class="header">
+  <nav class="navbar navbar-expand-lg">
+    <a class="navbar-brand" routerLink="videos">
+      <img src="assets/logo/GreyLogo_edited.png" style="height: 50px; margin-top: 10px">
+    </a>
+    <div class="container">
+      <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" routerLink="videos" *ngIf="loggedIn">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" (click)="logout($event)" *ngIf="loggedIn">Logout</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="register" *ngIf="!loggedIn">Register</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</div>
+
+<div class="footer">
+    <span> &copy; Video Analytics</span>
+
+</div>

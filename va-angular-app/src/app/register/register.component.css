@@ -1,0 +1,15 @@
+.card{
+    position: relative;
+    top: 120px;
+    width: 400px;
+    left: 35%;
+}
+
+.ng-invalid:not(form){
+    border-left: 5px solid red;
+}
+
+
+.ng-valid:not(form){
+    border-left: 5px solid green;
+}

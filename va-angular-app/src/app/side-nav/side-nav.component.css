@@ -1,0 +1,18 @@
+html, body{ height: 100%; }
+
+.card {
+  position: relative;
+  top: 200px;
+  width: fit-content;
+  left: 20%;
+}
+
+.mat-tree {
+  background: transparent;
+  padding: 10px;
+}
+
+.mat-tree-node {
+  color: black;
+  padding: 6px;
+}

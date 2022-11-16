@@ -1,0 +1,39 @@
+<div class="container mt-3">
+    <app-player></app-player>
+    <!-- <h1>Image Below</h1> -->
+    <!-- <app-canvas-view></app-canvas-view> -->
+    <!-- <br> -->
+    <br>
+    <!-- <h2>Video Results</h2> -->
+    <br>
+    <table class="table table-hover table-striped">
+        <thead>
+            <tr>
+                <th>X-Coordinate</th>
+                <th>Y-Coordinate</th>
+                <th>Width</th>
+                <th>Height</th>
+                <th>Actions</th>     
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor = "let results of videoResults | paginate: { id: 'pickSheet_details_pagination',
+            itemsPerPage: 5, currentPage: page, totalItems: totalRecords }">
+                <td>{{results.x_coordinate}}</td>
+                <td>{{results.y_coordinate}}</td>
+                <td>{{results.width}}</td>
+                <td>{{results.height}}</td>
+                <td>
+                    <button (click) = "openDialog(results.id)" type="button" class="btn btn-outline-primary me-2">
+                        <mat-icon aria-label="edit icon" fontIcon="edit"></mat-icon>
+                    </button>
+                    <!-- <button (click) = "deletePickSheetDetails(details.id)" type="button" class="btn btn-outline-danger">Delete</button> -->
+                </td>
+
+            </tr>
+        </tbody>
+    </table>
+    <div>
+        <pagination-controls id="pickSheet_details_pagination" (pageChange)="page = $event"></pagination-controls>
+    </div>
+</div>

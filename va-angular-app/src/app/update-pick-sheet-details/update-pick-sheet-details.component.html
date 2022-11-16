@@ -1,0 +1,50 @@
+<div class="container">
+
+    <h1 mat-dialog-title>Update PickSheet Details</h1>
+    <br>
+    <div mat-dialog-content [formGroup]="updatePickSheetDetailsForm">
+        <mat-form-field appearance="fill" class="mb-3 mt-3">
+            <mat-label>Zone:</mat-label>
+            <input matInput type="text" class="form-control" formControlName="zone">
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="fill" class="col mb-3 mt-3">
+            <mat-label>Pack:</mat-label>
+            <input matInput type="text" class="form-control" formControlName="pack">
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="fill" class="col mb-3 mt-3">
+            <mat-label>Flavour:</mat-label>
+            <input matInput type="text" class="form-control" formControlName="flavour">
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="fill" class="col mb-3 mt-3">
+            <mat-label>Hands:</mat-label>
+            <input matInput type="number" class="form-control" formControlName="hands">
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="fill" class="mb-3 mt-3">
+            <mat-label>Layers:</mat-label>
+            <input matInput type="number" class="form-control" formControlName="layers">
+        </mat-form-field>
+        <br>
+        <!-- <mat-form-field appearance="fill" class="col mb-3 mt-3">
+            <mat-label>Total Cases:</mat-label>
+            <input matInput type="number" class="form-control" formControlName="totalCases">
+        </mat-form-field>
+        <br> -->
+        <mat-form-field appearance="fill" class="col mb-3 mt-3">
+            <mat-label>SKU:</mat-label>
+            <input matInput type="text" class="form-control" formControlName="sku">
+        </mat-form-field>
+    </div>
+    <br>
+    <div class="mat-dialog-actions">
+        <button class="mat-raised-button" class="btn btn-outline-danger me-2" mat-button
+            (click)="cancel()">Cancel</button>
+        <button class="mat-raised-button" type="submit[disabled]" class="btn btn-success"
+            (click)="onSubmit()">Submit</button>
+    </div>
+
+
+</div>

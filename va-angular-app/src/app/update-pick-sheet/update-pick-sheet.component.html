@@ -1,0 +1,53 @@
+<div class="container">
+
+    <h1 mat-dialog-title>Update PickSheet</h1>
+    <br>
+    <div mat-dialog-content [formGroup]="updatePickSheetForm">
+        <mat-form-field appearance="fill" class="mb-3 mt-3">
+            <mat-label>Picksheet Number:</mat-label>
+            <input matInput type="text" class="form-control" formControlName="pick_sheet_number">
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="fill" class="col mb-3 mt-3">
+            <mat-label>Shipment Number:</mat-label>
+            <input matInput type="text" class="form-control" formControlName="shipment_number">
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="fill" class="col mb-3 mt-3">
+            <mat-label>PickSheet Date:</mat-label>
+            <input matInput type="date" class="form-control" formControlName="pick_sheet_date">
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="fill" class="col mb-3 mt-3">
+            <mat-label>Delivery Date:</mat-label>
+            <input matInput type="date" class="form-control" formControlName="delivery_date">
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="fill" class="mb-3 mt-3">
+            <mat-label>RouteID:</mat-label>
+            <input matInput type="text" class="form-control" formControlName="routeID">
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="fill" class="col mb-3 mt-3">
+            <mat-label>Bay:</mat-label>
+            <input matInput type="number" class="form-control" formControlName="bay">
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="fill" class="col mb-3 mt-3">
+            <mat-label>Bin:</mat-label>
+            <input matInput type="number" class="form-control" formControlName="bin">
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="fill" class="col mb-3 mt-3">
+            <mat-label>Quantity:</mat-label>
+            <input matInput type="number" class="form-control" formControlName="quantity">
+        </mat-form-field>
+    </div>
+    <br>
+    <div class="mat-dialog-actions">
+        <button class="mat-raised-button" class="btn btn-outline-danger me-2" mat-button (click)="cancel()">Cancel</button>
+        <button mat-button [mat-dialog-close]="true" class="btn btn-success" (click)="onSubmit()">Submit</button>
+    </div>
+
+
+</div>

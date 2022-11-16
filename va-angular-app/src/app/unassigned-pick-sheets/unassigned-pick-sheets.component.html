@@ -1,0 +1,55 @@
+<div mat-dialog-content class="container mt-3">
+    <button type="button" class="btn btn-default btn-sm" (click)="cancel()" style="float: right;">
+        <mat-icon aria-label="close icon" fontIcon="close"></mat-icon>
+    </button>
+    <div class="container">
+        <div class="card p-2" style="height: 40px; width: fit-content;">
+            <form (ngSubmit)="onSubmit(selectedPickSheet.id)" style="position: relative; bottom: 25px;">
+                <div class="row">
+                    <div class="col-3 mb-3 mt-3" style="margin-right: 25px;">
+                        <button type="submit[disabled]" class="btn btn-success">Submit</button>
+                    </div>
+                    <div *ngIf="selectedPickSheet" class="card col-4 me-2" style="height: fit-content; top: 25px; width: fit-content;">
+                        <small>You selected pick-sheet {{ selectedPickSheet.id }}</small>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <br>
+    <h2 mat-dialog-title>Pick Sheets</h2>
+    <br>
+    <table class="table table-hover table-striped">
+        <thead>
+            <tr>
+                <th>PickSheet Number</th>
+                <th>Shipment Number</th>
+                <th>PickSheet Date</th>
+                <th>Delivery Date</th>
+                <th>RouteID</th>
+                <th>Bay</th>
+                <th>Bin</th>
+                <th>Quantity</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let pickSheet of pickSheets | paginate: { id: 'pickSheet_pagination',
+                    itemsPerPage: 3, currentPage: page, totalItems: totalRecords }"
+                (click)="onSelectedPickSheet(pickSheet)">
+                <ng-container *ngIf="!pickSheet.deleted">
+                    <td>{{pickSheet.pick_sheet_number}}</td>
+                    <td>{{pickSheet.shipment_number}}</td>
+                    <td>{{pickSheet.pick_sheet_date}}</td>
+                    <td>{{pickSheet.delivery_date}}</td>
+                    <td>{{pickSheet.routeID}}</td>
+                    <td>{{pickSheet.bay}}</td>
+                    <td>{{pickSheet.bin}}</td>
+                    <td>{{pickSheet.quantity}}</td>
+                </ng-container>
+            </tr>
+        </tbody>
+    </table>
+    <div>
+        <pagination-controls id="pickSheet_pagination" (pageChange)="page = $event"></pagination-controls>
+    </div>
+</div>

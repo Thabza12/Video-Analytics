@@ -1,0 +1,41 @@
+<div class="container mt-3">
+    <h2>Videos</h2>
+    <br>
+    <table class="table table-hover table-striped">
+        <thead>
+            <tr>
+                <th>Video File</th>
+                <th>Record Date</th>
+                <th>Start Time</th>
+                <th>End Time</th>
+                <th>Actions</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let video of videos | paginate: { id: 'video_pagination',
+            itemsPerPage: 5, currentPage: page, totalItems: totalRecords }">
+                <ng-container *ngIf="!video.deleted">
+                    <td>{{video.video_file}}</td>
+                    <td>{{video.record_date}}</td>
+                    <td>{{video.start_time}}</td>
+                    <td>{{video.end_time}}</td>
+                    <td>
+                        <button (click)="openDialog(video.id)" type="button" class="btn btn-outline-primary me-2">
+                            <mat-icon aria-label="edit icon" fontIcon="edit"></mat-icon>
+                        </button>
+                        <button (click)="deleteVideo(video.id)" type="button" class="btn btn-outline-danger me-2">
+                            <mat-icon aria-label="delete icon" fontIcon="delete"></mat-icon>
+                        </button>
+                        <button (click)="videoResults(video.id, video.video_file)" type="button"
+                            class="btn btn-outline-info">Results
+                        </button>
+                    </td>
+                </ng-container>
+            </tr>
+        </tbody>
+    </table>
+    <div>
+        <pagination-controls id="video_pagination" (pageChange)="page = $event"></pagination-controls>
+    </div>
+</div>

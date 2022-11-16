@@ -1,0 +1,180 @@
+<div class="container">
+    <form [formGroup]="uploadResourceForm" (ng-Submit)="onSubmit(uploadResourceForm)">
+        <table>
+            <tr>
+                <br>
+                <br>
+                <br>
+                <h1>Upload Pick Sheet</h1>
+                <br>
+                <div class="row">
+                    <div class="col">
+                        <input type="text" class="form-control" formControlName="pickSheetNumber"
+                            placeholder="PickSheet Number" name="PickSheet Number">
+                    </div>
+                    <div class="col">
+                        <input type="text" class="form-control" formControlName="shipmentNumber"
+                            placeholder="Shipment Number" name="Shipment Number">
+                    </div>
+                    <div class="mb-3 mt-3">
+                        <label for="pickSheetDate" class="form-label">PickSheet Date:</label>
+                        <input type="date" class="form-control" formControlName="pickSheetDate" id="pickSheetDate"
+                            name="pickSheetDate">
+                    </div>
+                    <div class="mb-3 mt-3">
+                        <label for="deliveryDate" class="form-label">Delivery Date:</label>
+                        <input type="date" class="form-control" formControlName="deliveryDate" id="deliveryDate"
+                            name="deliveryDate">
+                    </div>
+                    <div class="col">
+                        <input type="text" class="form-control" formControlName="routeID" placeholder="RouteID"
+                            name="RouteID">
+                    </div>
+                    <div class="col">
+                        <input type="text" class="form-control" formControlName="bay" placeholder="Bay" name="Bay">
+                    </div>
+                    <div class="col">
+                        <input type="text" class="form-control" formControlName="bin" placeholder="Bin" name="Bin">
+                    </div>
+                    <div class="col">
+                        <input type="text" class="form-control" formControlName="quantity" placeholder="Quantity"
+                            name="Quantity">
+                    </div>
+                </div>
+                <br>
+            </tr>
+
+            <tr>
+                <div class="form-group" formArrayName="pickSheetDetailsRequest">
+                    <br>
+                    <h1>Upload PickSheet Details</h1>
+                    <br>
+                    <div class="row"
+                        *ngFor="let control of $any(uploadResourceForm.get('pickSheetDetailsRequest')).controls; let i = index"
+                        [formGroupName]="i">
+                        <div class="col-3 mb-3 mt-3">
+                            <input type="text" formControlName="zone" placeholder="Zone" name="Zone">
+                        </div>
+                        <div class="col-3 mb-3 mt-3">
+                            <input type="text" formControlName="pack" placeholder="Pack" name="Pack">
+                        </div>
+                        <div class="col-3 mb-3 mt-3">
+                            <input type="text" formControlName="flavour" placeholder="Flavour" name="Flavour">
+                        </div>
+                        <div class="col-3 mb-3 mt-3">
+                            <input type="text" formControlName="hands" placeholder="Hands" name="Hands">
+                        </div>
+                        <div class="col-3 mb-3 mt-3">
+                            <input type="text" formControlName="layers" placeholder="Layers" name="Layers">
+                        </div>
+                        <div class="col-3 mb-3 mt-3">
+                            <input type="text" formControlName="totalCases" placeholder="Total Cases"
+                                name="Total Cases">
+                        </div>
+                        <div class="col-3 mb-3 mt-3">
+                            <input type="text" formControlName="sku" placeholder="SKU" name="sku">
+                        </div>
+                        <div>
+                            <button (click)="removePickSheetDetails(i)" type="button"
+                            class="btn btn-outline-primary me-2">Remove</button>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="mb-3 mt-3">
+                        <button (click)="addPickSheetDetails()" type="button"
+                            class="btn btn-outline-danger me-2">Add</button>
+                    </div>
+                </div>
+
+            </tr> 
+
+            <tr>
+                <br>
+                <h1>Upload Videos</h1>
+                <br>
+                <div class="row">
+                    <div class="col">
+                        <input type="text" class="form-control" formControlName="videoFile" placeholder="Video File"
+                            name="Video File">
+                    </div>
+                    <div class="mb-3 mt-3">
+                        <label for="recordDate" class="form-label">Record Date:</label>
+                        <input type="date" class="form-control" formControlName="recordDate" id="recordDate"
+                            name="recordDate">
+                    </div>
+                    <div class="mb-3 mt-3">
+                        <label for="startTime" class="form-label">Start Time:</label>
+                        <input type="time" class="form-control" formControlName="startTime" id="startTime"
+                            name="startTime">
+                    </div>
+                    <div class="mb-3 mt-3">
+                        <label for="endTime" class="form-label">End Time:</label>
+                        <input type="time" class="form-control" formControlName="endTime" id="endTime" name="endTime">
+                    </div>
+                </div>
+                <br>
+            </tr>
+            <tr>
+                <div class="form-group" formArrayName="videoResultsRequest">
+                    <br>
+                    <h1>Upload Video Results</h1>
+                    <br>
+                    <div class="row"
+                        *ngFor="let control of $any(uploadResourceForm.get('videoResultsRequest')).controls; let i = index"
+                        [formGroupName]="i">
+                        <div class="col-3 mb-3 mt-3">
+                            <input type="text" formControlName="pickedProduct" placeholder="Picked Product"
+                                name="Picked Product">
+                        </div>
+                        <div class="col-3 mb-3 mt-3">
+                            <input type="text" formControlName="totalCases" placeholder="Total Cases"
+                                name="Total Cases">
+                        </div>
+                        <div>
+                            <button (click)="removeVideoResults(i)" type="button"
+                                class="btn btn-outline-primary me-2">Remove</button>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="mb-3 mt-3">
+                        <button (click)="addVideoResults()" type="button"
+                            class="btn btn-outline-danger me-2">Add</button>
+                    </div>
+                </div>
+            </tr>
+            <tr>
+                <div class="form-group" formArrayName="algoResultsRequest">
+                    <br>
+                    <h1>Upload Algorithm Results</h1>
+                    <br>
+                    <div class="row"
+                        *ngFor="let control of $any(uploadResourceForm.get('algoResultsRequest')).controls; let i = index"
+                        [formGroupName]="i">
+                        <div class="col-3 mb-3 mt-3">
+                            <input type="text" formControlName="productName" placeholder="Product Name"
+                                name="Product Name">
+                        </div>
+                        <div class="col-3 mb-3 mt-3">
+                            <input type="text" formControlName="productImage" placeholder="Product Image"
+                                name="Product Image">
+                        </div>
+                        <div>
+                            <button (click)="removeAlgoResults(i)" type="button"
+                                class="btn btn-outline-primary me-2">Remove</button>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="mb-3 mt-3">
+                        <button (click)="addAlgoResults()" type="button"
+                            class="btn btn-outline-danger me-2">Add</button>
+                    </div>
+                </div>
+            </tr>
+
+            <button (click)="onSubmit(uploadResourceForm)" class="btn btn-success">Submit</button>
+        </table>
+
+    </form>
+    <br>
+    <br>
+</div>

@@ -1,0 +1,20 @@
+<br>
+<br>
+
+
+<mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
+    <mat-tree-node *matTreeNodeDef="let node" matTreeNodePadding>
+        <mat-icon class="mat-icon-button"></mat-icon>
+        <button mat-button class="btn btn-outline-primary" style="height: 35px;" (click)="navigateToPage(node.name)">{{node.name}}</button>
+
+    </mat-tree-node>
+
+    <mat-tree-node *matTreeNodeDef="let node;when: hasChild" matTreeNodePadding>
+        <mat-button-toggle-group mat-icon-button matTreeNodeToggle [attr.aria-label]="'Toggle ' + node.name">
+            <mat-icon class="mat-icon-rtl-mirror">
+                {{treeControl.isExpandable(node) ? 'expand_more' : 'chevron_right'}}
+            </mat-icon>
+        </mat-button-toggle-group>
+        {{node.name}}
+    </mat-tree-node>
+</mat-tree>

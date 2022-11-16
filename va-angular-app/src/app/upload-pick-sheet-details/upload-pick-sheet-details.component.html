@@ -1,0 +1,47 @@
+<div class="container">
+
+    <h1 mat-dialog-title>Details</h1>
+    <br>
+    <div mat-dialog-content [formGroup]="uploadDetailsForm">
+        <mat-form-field appearance="fill">
+            <mat-label>Zone:</mat-label>
+            <input matInput type="text" class="form-control" formControlName="zone">
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="fill">
+            <mat-label>Pack:</mat-label>
+            <input matInput type="text" class="form-control" formControlName="pack">
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="fill">
+            <mat-label>Flavour:</mat-label>
+            <input matInput type="text" class="form-control" formControlName="flavour">
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="fill">
+            <mat-label>Hands:</mat-label>
+            <input matInput type="number" class="form-control" formControlName="hands">
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="fill">
+            <mat-label>Layers:</mat-label>
+            <input matInput type="number" class="form-control" formControlName="layers">
+        </mat-form-field>
+        <br>
+        <!-- <mat-form-field appearance="fill">
+            <mat-label>Total Cases:</mat-label>
+            <input matInput type="number" class="form-control" formControlName="totalCases">
+        </mat-form-field> -->
+        <!-- <br> -->
+        <mat-form-field appearance="fill">
+            <mat-label>SKU:</mat-label>
+            <input matInput type="text" class="form-control" formControlName="SKU">
+        </mat-form-field>
+    </div>
+    <br>
+    <div class="mat-dialog-actions">
+        <button class="mat-raised-button" class="btn btn-outline-danger me-2" mat-button (click)="cancel()">Cancel</button>
+        <button mat-button [mat-dialog-close]="true" class="btn btn-success" (click)="onSubmit(uploadDetailsForm)">Submit</button>
+    </div>
+
+</div>

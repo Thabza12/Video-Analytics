@@ -1,0 +1,12 @@
+<!-- <router-outlet></router-outlet> -->
+<app-header-footer></app-header-footer>
+<!-- <ng-snotify></ng-snotify> --> 
+
+<mat-sidenav-container style="height: 89%; top: 60px">
+    <mat-sidenav *ngIf="loggedIn" #sideNav mode="side" opened>
+        <app-side-nav></app-side-nav>
+    </mat-sidenav>
+    <mat-sidenav-content style="height: 100%;">
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>

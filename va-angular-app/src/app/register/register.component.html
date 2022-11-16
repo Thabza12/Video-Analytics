@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="card">
+        <div class="card-body">
+            <form class="form-registration" (ngSubmit)="onSubmit()" #registrationForm="ngForm">
+
+                <h1 class="text-center h3 mb-3 font-weight-normal">Register here</h1>
+
+                <label for="inputName" class="sr-only">Full Name</label>
+                <input type="name" name="name" id="inputName" class="form-control" placeholder="Full Name" required autofocus [(ngModel)]="form.name">
+                <br>
+                <div class="form-group">
+                    <label for="inputEmail" class="sr-only">Email address</label>
+                    <div>
+                        <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus [(ngModel)]="form.email">
+                        <!-- <div class="alert alert-danger" [hidden]="!error.email"> {{error.email}} </div> -->
+                    </div>
+                </div>
+                <br>
+                <div class="form-group">
+                    <label for="inputPassword" class="sr-only">Password</label>
+                    <div>
+                        <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required [(ngModel)]="form.password">
+                        <!-- <div class="alert alert-danger" [hidden]="!error.password"> {{error.password}} </div> -->
+                    </div>
+                </div>
+                <br>
+                <label for="inputPassword_confirmation" class="sr-only">Confirm Password</label>
+                <input type="password" name="password_confirmation" id="inputPassword_confirmation" class="form-control" placeholder="Cornfirm Password" 
+                required [(ngModel)]="form.password_confirmation">
+                <br>
+                <div class="col-sm-15">
+                    <button class="btn btn-primary btn-block me-5" type="submit" [disabled]="!registrationForm.valid">Sign up</button>
+                    <!-- <a routerLink="login" class="btn btn-primary btn-block me-5" type="submit">Sign up</a> -->
+                </div>
+              </form>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<div class="container mt-3">
+    <h2>Videos</h2>
+    <br>
+    <table class="table table-hover table-striped">
+        <thead>
+            <tr>
+                <th>Video File</th>
+                <th>Record Date</th>
+                <th>Start Time</th>
+                <th>End Time</th>
+                <th>Actions</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let video of videos | paginate: { id: 'video_pagination',
+            itemsPerPage: 5, currentPage: page, totalItems: totalRecords }" (click)="onSelectedVideo(video)">
+                <ng-container *ngIf="!video.assigned">
+                    <td>{{video.video_file}}</td>
+                    <td>{{video.record_date}}</td>
+                    <td>{{video.start_time}}</td>
+                    <td>{{video.end_time}}</td>
+                    <td>
+                        <button (click)="openDialog(video.id)" type="button" class="btn btn-outline-primary me-2">
+                            <mat-icon aria-label="attach_file icon" fontIcon="attach_file"></mat-icon>
+                        </button>
+                    </td>
+                </ng-container>
+            </tr>
+        </tbody>
+    </table>
+    <div>
+        <pagination-controls id="video_pagination" (pageChange)="page = $event"></pagination-controls>
+    </div>
+</div>
